@@ -1,264 +1,331 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NoobPixel | Official Website</title>
+<title>NoobPixel | Gaming Universe</title>
+<meta name="description" content="Welcome to NoobPixel Gaming Universe! Play mini-games and explore.">
+
 <style>
 :root {
-  --bg:#030916;
-  --card:#09172c;
-  --blue:#087dff;
-  --purple:#a100ff;
-  --pink:#ff38dc;
-  --cyan:#44eaff;
+  --bg:#080b16;
+  --panel:#11182b;
+  --blue:#48d9ff;
+  --purple:#a66bff;
+  --text:#f5f7ff;
+  --muted:#a8b1ca;
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  margin:0;background:var(--bg);color:white;
+  background:radial-gradient(ellipse at top,#18264a 0%,var(--bg) 55%);
+  color:var(--text);
   font-family:Arial,sans-serif;
-  background-image:radial-gradient(ellipse at top,#15265a 0%,#030916 65%);
+  min-height:100vh;
 }
 header{
-  height:65px;padding:10px 15px;
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid #164a8b;
-  background:#030916;position:sticky;top:0;z-index:10;
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 5%;gap:12px;flex-wrap:wrap;
+  background:#080b16eF;border-bottom:1px solid #ffffff16;
+  backdrop-filter:blur(15px);
 }
-.logo{font-size:25px;font-weight:900;color:#e7caff;
- text-shadow:2px 2px #8b00ff}
-.logo span{color:#ff3be6}
-.menu{color:white;background:#101c36;border:1px solid #245baf;
- padding:9px 12px;border-radius:8px}
-main{max-width:650px;margin:auto;padding:15px}
-.page{display:none;min-height:72vh;animation:show .3s}
-.page.active{display:flex;flex-direction:column}
-@keyframes show{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.hero{
- min-height:65vh;border:1px solid #8b31ff;border-radius:15px;
- display:flex;flex-direction:column;align-items:center;justify-content:center;
- text-align:center;padding:20px;
- background:linear-gradient(160deg,#152b61,#080d20 55%,#301052);
- overflow:hidden;position:relative;
+.logo{font-size:24px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:8px;overflow-x:auto;max-width:100%}
+nav a{
+  color:var(--muted);text-decoration:none;
+  padding:10px 12px;border-radius:12px;white-space:nowrap;
 }
-.hero h1{font-size:clamp(34px,9vw,55px);line-height:1.1;margin:12px 0;
- text-shadow:3px 4px #4300a4}
-.hero h1 span{color:#f23ce8}
-.hero p{color:#a9eaff}
-.pixel{font-size:85px;filter:drop-shadow(0 0 15px #8b35ff)}
-.title{font-size:26px;font-weight:900;margin:10px 0}
-.sub{color:#8feaff;font-size:14px;line-height:1.6}
+nav a:hover{background:#202b48;color:white}
+section{padding:65px 5%;scroll-margin-top:75px}
+.hero{text-align:center;padding-top:85px;padding-bottom:80px}
+.tag{
+  display:inline-block;border:1px solid #48d9ff66;
+  color:var(--blue);padding:8px 14px;border-radius:30px;
+  background:#48d9ff0c;font-size:13px;
+}
+h1{
+  font-size:clamp(42px,9vw,82px);
+  margin:22px 0;line-height:1.05;
+  text-shadow:0 0 35px #48d9ff30;
+}
+.gradient{
+  background:linear-gradient(90deg,var(--blue),var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.subtitle{color:var(--muted);max-width:600px;margin:0 auto;line-height:1.7}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  border:0;cursor:pointer;text-decoration:none;display:inline-block;
+  padding:13px 20px;border-radius:13px;font-weight:bold;
+  color:#07101c;background:linear-gradient(110deg,var(--blue),#9b8aff);
+  transition:.2s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px #48d9ff25}
+.btn.secondary{background:#18213a;color:white;border:1px solid #ffffff20}
+.section-title{text-align:center;font-size:clamp(28px,5vw,42px);margin-bottom:12px}
+.section-desc{text-align:center;color:var(--muted);margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
 .card{
- background:linear-gradient(145deg,#102449,#050c1b);
- border:1px solid #145fba;border-radius:13px;padding:16px;margin:10px 0;
- box-shadow:0 0 12px #071d48;
+  background:linear-gradient(145deg,#151e35,#0e1425);
+  border:1px solid #ffffff12;border-radius:22px;padding:24px;
+  box-shadow:0 15px 35px #0003;transition:.25s;
+  transform-style:preserve-3d;
 }
-.social{display:flex;align-items:center;gap:12px}
-.chest{
- width:76px;height:76px;flex-shrink:0;display:grid;place-items:center;
- border-radius:13px;background:linear-gradient(145deg,#243d81,#080d22);
- border:2px solid #7b39ff;font-size:39px;
- box-shadow:inset 0 0 15px #612aff,0 0 12px #273fff;
+.card:hover{transform:translateY(-6px) perspective(700px) rotateX(2deg);border-color:#48d9ff70}
+.emoji{font-size:38px;margin-bottom:15px}
+.card h3{margin-bottom:10px;font-size:20px}
+.card p{color:var(--muted);line-height:1.6;font-size:14px}
+.card .btn{margin-top:18px}
+.gamebox{
+  margin-top:15px;padding:15px;border-radius:14px;
+  background:#080d1c;border:1px solid #ffffff14;
 }
-.red{border-color:#ff3333;box-shadow:inset 0 0 15px #ff1717}
-.pink{border-color:#ff39dd;box-shadow:inset 0 0 15px #d100ff}
-a.btn,button.btn{
- display:inline-block;text-align:center;text-decoration:none;color:white;
- border:1px solid #5c70ff;border-radius:10px;padding:12px 15px;
- font-weight:bold;background:linear-gradient(100deg,#145bff,#7900ed);
- cursor:pointer;
+input,select{
+  width:100%;padding:12px;margin-top:10px;border-radius:10px;
+  background:#101a30;border:1px solid #ffffff25;color:white;
 }
-.redbtn{background:linear-gradient(100deg,#ff2727,#b50020)!important;border-color:#ff7373!important}
-.pinkbtn{background:linear-gradient(100deg,#ed00cc,#7200d9)!important;border-color:#ff73ed!important}
-.actions{display:flex;gap:10px;margin-top:12px}
-.actions .btn{flex:1}
-.video{
- display:flex;gap:10px;align-items:center;
- padding:10px 0;border-bottom:1px solid #20375e;
+.result{margin-top:12px;color:var(--blue);font-weight:bold;min-height:22px}
+.stat{
+  text-align:center;background:#10182b;border:1px solid #ffffff12;
+  border-radius:18px;padding:22px;
 }
-.thumb{
- width:105px;height:65px;flex-shrink:0;border-radius:8px;
- background:linear-gradient(135deg,#164e63,#5025a5);
- display:grid;place-items:center;font-size:25px;
- border:1px solid #2979ff;
+.stat strong{display:block;font-size:30px;color:var(--blue);margin-bottom:6px}
+.stat span{color:var(--muted);font-size:13px}
+.center{text-align:center}
+footer{
+  border-top:1px solid #ffffff15;padding:28px 5%;
+  text-align:center;color:var(--muted);line-height:1.8;
 }
-.video a{color:#fff;text-decoration:none;font-size:14px;font-weight:bold}
-.video small{display:block;color:#75dcff;margin-top:5px}
-.bigsub{
- margin-top:20px;padding:20px 12px;text-align:center;
- border:1px solid #ff303d;border-radius:15px;
- background:radial-gradient(ellipse,#471020,#100916 75%);
-}
-.bigsub .play{font-size:100px;filter:drop-shadow(0 0 18px red)}
-.bigsub .btn{font-size:19px;width:100%;margin-top:10px}
-.techlogo{
- padding:25px 12px;text-align:center;font-size:36px;font-weight:900;
- border:1px solid #177cff;border-radius:12px;
- background:linear-gradient(135deg,#091632,#152f69,#080c19);
- text-shadow:3px 3px #7100ff;
-}
-footer{padding:18px;text-align:center;color:#a9bbdf;font-size:12px}
-.pager{
- display:flex;align-items:center;justify-content:center;gap:12px;
- margin:20px 0 8px;
-}
-.pager button{min-width:82px}
-#count{color:#b9a2ff;font-weight:bold}
-.note{font-size:12px;color:#91a6cc;text-align:center}
-@media(min-width:600px){
- main{padding:25px}
- .hero{min-height:490px}
- .social .chest{width:90px;height:90px}
+.small{font-size:12px;color:var(--muted);margin-top:12px}
+@media(max-width:520px){
+ header{justify-content:center}
+ nav{width:100%;padding-bottom:3px}
+ section{padding:48px 5%}
+ .hero{padding-top:65px}
 }
 </style>
 </head>
-<body>
 
+<body>
 <header>
- <div class="logo">👑 Noob<span>Pixel</span></div>
- <button class="menu" onclick="toggleMenu()">☰ Pages</button>
+  <div class="logo">NOOB<span>PIXEL</span> ⚡</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#afk">AFK</a>
+    <a href="#apps">Apps</a>
+    <a href="#discord">Discord</a>
+  </nav>
 </header>
 
 <main>
-
-<!-- PAGE 1 -->
-<section class="page active" id="p1">
- <div class="hero">
-  <div class="pixel">⚔️</div>
-  <p>👑 WELCOME TO</p>
-  <h1>Noob<span>Pixel</span><br>Website</h1>
-  <p>🎮 Play • Earn • Have Fun</p>
-  <p>Your Minecraft Community Starts Here!</p>
-  <button class="btn pinkbtn" onclick="go(2)">Explore Website ↓</button>
- </div>
+<section class="hero" id="home">
+  <div class="tag">🎮 YOUR GAMING UNIVERSE</div>
+  <h1>WELCOME TO<br><span class="gradient">NOOBPIXEL</span></h1>
+  <p class="subtitle">
+    Explore mini-games, chill in the AFK zone and join the NoobPixel community.
+    Your next gaming adventure starts here!
+  </p>
+  <div class="actions">
+    <a class="btn" href="#games">🎮 Play Games</a>
+    <a class="btn secondary" href="https://youtube.com/@noobpixelofficial" target="_blank" rel="noopener">▶ YouTube</a>
+  </div>
 </section>
 
-<!-- PAGE 2 -->
-<section class="page" id="p2">
- <h2 class="title">💜 Connect With Us</h2>
- <p class="sub">Join our community and stay connected!</p>
-
- <div class="card social">
-  <div class="chest">🎮</div>
-  <div><h3>Discord</h3><p class="sub">Join Our Community</p>
-   <a class="btn" href="https://discord.gg/bpWs3cK8MT" target="_blank">Join Server</a>
+<section>
+  <div class="grid">
+    <div class="stat"><strong>🎮</strong><span>Mini Games</span></div>
+    <div class="stat"><strong>⚡</strong><span>AFK Zone</span></div>
+    <div class="stat"><strong>📱</strong><span>Mobile Friendly</span></div>
   </div>
- </div>
-
- <div class="card social">
-  <div class="chest red">▶️</div>
-  <div><h3>YouTube</h3><p class="sub">NoobPixel Official</p>
-   <a class="btn redbtn" href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">Visit Channel</a>
-  </div>
- </div>
-
- <div class="card social">
-  <div class="chest pink">📸</div>
-  <div><h3>Instagram</h3><p class="sub">Follow for Updates</p>
-   <a class="btn pinkbtn" href="https://www.instagram.com/liamboostscars?xtok=cjJ0YzNsYnYzcDAzka" target="_blank">Follow Us</a>
-  </div>
- </div>
 </section>
 
-<!-- PAGE 3 -->
-<section class="page" id="p3">
- <h2 class="title">▶ Latest 5 Videos</h2>
- <p class="sub">Watch the latest NoobPixel videos!</p>
- <div class="card">
-  <div class="video"><div class="thumb">🏡</div><div>
-   <a href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">Video 1 — Latest Upload</a>
-   <small>▶ Watch on YouTube</small></div></div>
-  <div class="video"><div class="thumb">⚔️</div><div>
-   <a href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">Video 2 — Minecraft Gaming</a>
-   <small>▶ Watch on YouTube</small></div></div>
-  <div class="video"><div class="thumb">🧱</div><div>
-   <a href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">Video 3 — Minecraft Builds</a>
-   <small>▶ Watch on YouTube</small></div></div>
-  <div class="video"><div class="thumb">😂</div><div>
-   <a href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">Video 4 — Gaming Moments</a>
-   <small>▶ Watch on YouTube</small></div></div>
-  <div class="video"><div class="thumb">⛏️</div><div>
-   <a href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">Video 5 — More Gameplay</a>
-   <small>▶ Watch on YouTube</small></div></div>
- </div>
- <p class="note">Replace these sample entries with your actual video links.</p>
- <a class="btn redbtn" href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">See All Videos</a>
-</section>
+<section id="games">
+  <h2 class="section-title">🎮 Mini <span class="gradient">Games</span></h2>
+  <p class="section-desc">Choose a game and have some fun!</p>
 
-<!-- PAGE 4 -->
-<section class="page" id="p4">
- <h2 class="title">❤️ Instant Subscribe</h2>
- <div class="bigsub">
-  <div class="play">▶️</div>
-  <h2>Support NoobPixel!</h2>
-  <p class="sub">One click takes you to our YouTube channel.</p>
-  <a class="btn redbtn" href="https://youtube.com/@noobpixelofficials?si=9LG2WAZf9IXkcnAQ" target="_blank">▶ Subscribe Now</a>
-  <p class="note">YouTube will ask you to subscribe; it cannot be done automatically without your confirmation.</p>
- </div>
-</section>
+  <div class="grid">
+    <article class="card">
+      <div class="emoji">⚡</div>
+      <h3>Click Challenge</h3>
+      <p>Click as many times as you can in 10 seconds.</p>
+      <div class="gamebox">
+        <div id="clickCount">Clicks: 0</div>
+        <div class="result" id="clickTime">Ready?</div>
+        <button class="btn" id="clickStart">Start Game</button>
+        <button class="btn secondary" id="clickButton" disabled>CLICK ME!</button>
+      </div>
+    </article>
 
-<!-- PAGE 5 -->
-<section class="page" id="p5">
- <h2 class="title">🌐 TechMC & Social Media</h2>
- <div class="techlogo">👑 TECHMC</div>
+    <article class="card">
+      <div class="emoji">🪙</div>
+      <h3>Coin Flip</h3>
+      <p>Pick heads or tails and see what the coin lands on.</p>
+      <div class="gamebox">
+        <button class="btn" onclick="flipCoin('Heads')">Heads</button>
+        <button class="btn secondary" onclick="flipCoin('Tails')">Tails</button>
+        <div class="result" id="coinResult">Ready to flip?</div>
+      </div>
+    </article>
 
- <div class="card">
-  <h3>🌐 My Other Website</h3>
-  <p class="sub">Visit the TechMC website</p>
-  <a class="btn" href="https://techmcstore.github.io/NoobpixelWeb/" target="_blank">Visit TechMC Website</a>
- </div>
-
- <div class="card social">
-  <div class="chest red">▶️</div>
-  <div><h3>TechMC YouTube</h3>
-   <a class="btn redbtn" href="https://youtube.com/@bctechnoopyt?si=9wh9prYMHn7sFUeW" target="_blank">Visit Channel</a>
+    <article class="card">
+      <div class="emoji">🔢</div>
+      <h3>Number Guess</h3>
+      <p>Guess the secret number between 1 and 20.</p>
+      <div class="gamebox">
+        <input id="guessInput" type="number" min="1" max="20" placeholder="Enter 1–20">
+        <button class="btn" onclick="guessNumber()">Guess</button>
+        <button class="btn secondary" onclick="newNumber()">New Number</button>
+        <div class="result" id="guessResult">Let's play!</div>
+      </div>
+    </article>
   </div>
- </div>
-
- <div class="card social">
-  <div class="chest pink">📸</div>
-  <div><h3>TechMC Instagram</h3>
-   <a class="btn pinkbtn" href="https://www.instagram.com/vivekbazzigar1?psln=MXg1dWxteXN5MzJqeg==" target="_blank">Follow Instagram</a>
-  </div>
- </div>
-
- <div class="card">
-  <h3>🇮🇳 Made in India</h3>
-  <p>❤️ Made with love by Vivekbazzigar</p>
- </div>
 </section>
 
-<div class="pager">
- <button class="btn" id="back" onclick="go(current-1)">← Back</button>
- <span id="count">1 / 5</span>
- <button class="btn pinkbtn" id="next" onclick="go(current+1)">Next →</button>
-</div>
-<p class="note">Use Back and Next to explore each page.</p>
+<section id="afk">
+  <h2 class="section-title">💤 AFK <span class="gradient">Zone</span></h2>
+  <p class="section-desc">Relax for a minute and earn demo points on this page.</p>
+  <div class="card center" style="max-width:550px;margin:auto">
+    <div class="emoji">🌌</div>
+    <h3>AFK Lounge</h3>
+    <p>Start the timer and let it run. This is a local demo; points are not a real currency.</p>
+    <div class="result" id="afkTime">60 seconds</div>
+    <button class="btn" id="afkStart">Start AFK</button>
+    <button class="btn secondary" id="afkStop">Stop</button>
+    <div class="result" id="afkPoints">Demo Points: 0</div>
+  </div>
+</section>
+
+<section id="apps">
+  <h2 class="section-title">📱 <span class="gradient">Apps</span></h2>
+  <p class="section-desc">This section is ready for your future apps.</p>
+  <div class="card center">
+    <div class="emoji">🚧</div>
+    <h3>Coming Soon</h3>
+    <p>Cool apps and useful tools will be added here later.</p>
+  </div>
+</section>
+
+<section id="discord">
+  <h2 class="section-title">💬 Join the <span class="gradient">Community</span></h2>
+  <p class="section-desc">Follow NoobPixel on YouTube. Discord is coming soon!</p>
+  <div class="grid">
+    <div class="card center">
+      <div class="emoji">▶️</div>
+      <h3>YouTube</h3>
+      <p>Watch NoobPixel videos and gaming content.</p>
+      <a class="btn" href="https://youtube.com/@noobpixelofficial" target="_blank" rel="noopener">Open YouTube</a>
+    </div>
+    <div class="card center">
+      <div class="emoji">💬</div>
+      <h3>Discord</h3>
+      <p>Our Discord community link will be added here later.</p>
+      <button class="btn secondary" onclick="alert('Discord coming soon!')">Coming Soon</button>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
- 👑 NoobPixel Official Website<br><br>
- 🇮🇳 Made in India ❤️ Made by Vivekbazzigar
+  <div class="logo">NOOB<span>PIXEL</span> ⚡</div>
+  <p>Made for gamers, by gamers.</p>
+  <p>© <span id="year"></span> NoobPixel. All rights reserved.</p>
 </footer>
 
 <script>
-let current=1;
-function go(n){
- if(n<1)n=1;
- if(n>5)n=5;
- current=n;
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById('p'+n).classList.add('active');
- document.getElementById('count').textContent=n+' / 5';
- document.getElementById('back').disabled=n===1;
- document.getElementById('next').disabled=n===5;
- window.scrollTo({top:0,behavior:'smooth'});
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Coin flip
+function flipCoin(choice){
+  const result = Math.random() < 0.5 ? "Heads" : "Tails";
+  document.getElementById("coinResult").textContent =
+    result + (result === choice ? " — You win! 🎉" : " — Try again!");
 }
-function toggleMenu(){
- const n=prompt('Enter page number (1 to 5):');
- if(n!==null && /^[1-5]$/.test(n))go(Number(n));
+
+// Number guessing
+let secret = Math.floor(Math.random() * 20) + 1;
+function newNumber(){
+  secret = Math.floor(Math.random() * 20) + 1;
+  document.getElementById("guessInput").value = "";
+  document.getElementById("guessResult").textContent = "New number ready!";
 }
-go(1);
+function guessNumber(){
+  const input = document.getElementById("guessInput");
+  const value = Number(input.value);
+  const result = document.getElementById("guessResult");
+  if(!input.value || value < 1 || value > 20 || !Number.isInteger(value)){
+    result.textContent = "Enter a whole number from 1 to 20.";
+  }else if(value === secret){
+    result.textContent = "Correct! 🎉 You got it!";
+  }else if(value < secret){
+    result.textContent = "Too low! Try a bigger number.";
+  }else{
+    result.textContent = "Too high! Try a smaller number.";
+  }
+}
+
+// Click challenge
+let clicks = 0, clickSeconds = 10, clickInterval = null, clickRunning = false;
+const clickCount = document.getElementById("clickCount");
+const clickTime = document.getElementById("clickTime");
+const clickButton = document.getElementById("clickButton");
+document.getElementById("clickStart").addEventListener("click", () => {
+  clearInterval(clickInterval);
+  clicks = 0;
+  clickSeconds = 10;
+  clickRunning = true;
+  clickCount.textContent = "Clicks: 0";
+  clickTime.textContent = "Time: 10s";
+  clickButton.disabled = false;
+  clickInterval = setInterval(() => {
+    clickSeconds--;
+    clickTime.textContent = "Time: " + clickSeconds + "s";
+    if(clickSeconds <= 0){
+      clearInterval(clickInterval);
+      clickRunning = false;
+      clickButton.disabled = true;
+      clickTime.textContent = "Finished! Total clicks: " + clicks;
+    }
+  }, 1000);
+});
+clickButton.addEventListener("click", () => {
+  if(!clickRunning) return;
+  clicks++;
+  clickCount.textContent = "Clicks: " + clicks;
+});
+
+// AFK timer: demo only
+let afkInterval = null, afkSeconds = 60, points = 0;
+const afkTime = document.getElementById("afkTime");
+const afkStart = document.getElementById("afkStart");
+function stopAfk(){
+  clearInterval(afkInterval);
+  afkInterval = null;
+  afkStart.disabled = false;
+}
+afkStart.addEventListener("click", () => {
+  if(afkInterval) return;
+  afkSeconds = 60;
+  afkTime.textContent = "60 seconds remaining";
+  afkStart.disabled = true;
+  afkInterval = setInterval(() => {
+    afkSeconds--;
+    afkTime.textContent = afkSeconds + " seconds remaining";
+    if(afkSeconds <= 0){
+      stopAfk();
+      points += 10;
+      document.getElementById("afkPoints").textContent = "Demo Points: " + points;
+      afkTime.textContent = "AFK session complete! 🎉";
+    }
+  }, 1000);
+});
+document.getElementById("afkStop").addEventListener("click", () => {
+  stopAfk();
+  afkTime.textContent = "AFK stopped.";
+});
 </script>
 </body>
 </html>
